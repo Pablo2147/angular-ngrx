@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
+import { AppStateWithIngreso } from '../ingreso-egreso.reducer';
+
 import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 
 @Component({
@@ -22,7 +23,7 @@ export class EstadisticaComponent implements OnInit {
   totalIngresos = 0;
   totalEgresos = 0;
 
-  constructor( private store: Store<AppState>) { }
+  constructor( private store: Store<AppStateWithIngreso>) { }
 
   ngOnInit() {
     this.store.select('ingresosEgresos').subscribe( ({ items }) => this.generarEstadisticas( items ));

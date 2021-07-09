@@ -48,7 +48,6 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
     if (this.IngresoEgresoForm.invalid) { return; }
 
     this.store.dispatch( ui.isLoading() );
-    console.log(this.IngresoEgresoForm.value);
 
     const {descripcion, monto} = this.IngresoEgresoForm.value;
 
