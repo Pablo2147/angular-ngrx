@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
 
 
-//NGRX
+// NGRX
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
@@ -17,9 +17,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -31,6 +30,7 @@ import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { OrdenIngresosPipe } from './pipes/orden-ingresos.pipe';
 
 @NgModule({
   declarations: [
@@ -43,12 +43,14 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresosPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ChartsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -56,7 +58,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
